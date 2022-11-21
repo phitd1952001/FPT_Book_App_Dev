@@ -8,6 +8,8 @@ namespace FPT_Book_Khôi_Phi.Models
     {
         [Required]
         public string FullName { get; set; }
+        
+        public string Address { get; set; }
         [NotMapped]
         public string Role { get; set; }
     }
