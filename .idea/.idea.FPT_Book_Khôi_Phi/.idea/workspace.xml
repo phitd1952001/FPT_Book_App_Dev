@@ -9,13 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fce3ef-441c-4dad-92c8-1aaaf4761438" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221121034119_AddDbinit.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221121034119_AddDbinit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +115,9 @@
       <workItem from="1669046811102" duration="880000" />
       <workItem from="1669047768561" duration="146000" />
       <workItem from="1669047949204" duration="170000" />
+      <workItem from="1669048273103" duration="310000" />
+      <workItem from="1669085176626" duration="652000" />
+      <workItem from="1669090836563" duration="192000" />
     </task>
     <servers />
   </component>
