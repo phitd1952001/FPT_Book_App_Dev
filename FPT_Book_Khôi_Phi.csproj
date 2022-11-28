@@ -19,12 +19,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas\Authenticated\Controllers" />
+      <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Privacy.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Privacy.cshtml" />
+      <Folder Include="wwwroot\Images\Products" />
     </ItemGroup>
 
 </Project>
