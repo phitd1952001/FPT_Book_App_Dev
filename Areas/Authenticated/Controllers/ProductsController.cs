@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using FPT_Book_Khôi_Phi.ViewModels;
+using FPT_Book_Khôi_Phi.ViewModel;
 using FPT_Book_Khôi_Phi.Data;
 using FPT_Book_Khôi_Phi.Models;
 using FPT_Book_Khôi_Phi.Utility;
@@ -100,7 +100,16 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                _db.Products.Update(productVm.Product);
+                var productDb = _db.Products.Find(productVm.Product.Id);
+                productDb.Author = productVm.Product.Author;
+                productDb.Title = productVm.Product.Title;
+                productDb.Category = productVm.Product.Category;
+                productDb.Description = productVm.Product.Description;
+                productDb.Price = productVm.Product.Price;
+                productDb.NoPage = productVm.Product.NoPage;
+                productDb.ImageUrl = productVm.Product.ImageUrl;
+                
+                _db.Products.Update(productDb);
                 _db.SaveChanges();
                 TempData["Message"] = "Success: Update Successfully";
                 return RedirectToAction(nameof(Index));
