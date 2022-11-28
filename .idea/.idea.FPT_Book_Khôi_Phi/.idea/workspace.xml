@@ -24,7 +24,22 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/UsersManagementController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/ConfirmEmail.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/ResetPassword.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/Update.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel/ConfirmEmailVM.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel/ResetPasswordViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel/UserVM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20221121163311_addDbApplicationUser.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20221121163311_addDbApplicationUser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
@@ -132,15 +147,6 @@
       <workItem from="1669046811102" duration="880000" />
       <workItem from="1669047768561" duration="146000" />
       <workItem from="1669047949204" duration="170000" />
-      <workItem from="1669048273103" duration="310000" />
-      <workItem from="1669085176626" duration="652000" />
-      <workItem from="1669090836563" duration="192000" />
-      <workItem from="1669091091945" duration="969000" />
-      <workItem from="1669099831833" duration="1284000" />
-      <workItem from="1669124748685" duration="3488000" />
-      <workItem from="1669134554186" duration="1584000" />
-      <workItem from="1669367064066" duration="1207000" />
-      <workItem from="1669642986658" duration="3647000" />
     </task>
     <servers />
   </component>

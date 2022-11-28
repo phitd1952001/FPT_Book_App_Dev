@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using FPT_Book_Khôi_Phi.Data;
+using FPT_Book_Khôi_Phi.DbInitializer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,6 +38,7 @@ namespace FPT_Book_Khôi_Phi
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
             services.AddControllersWithViews();
+            services.AddScoped<IDbInitializer, DbInitializer.DbInitializer>();
             
             services.ConfigureApplicationCookie(options =>
             {
@@ -53,7 +55,7 @@ namespace FPT_Book_Khôi_Phi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -75,6 +77,8 @@ namespace FPT_Book_Khôi_Phi
             app.UseAuthentication();
             app.UseAuthorization();
 
+            dbInitializer.Initialize();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
