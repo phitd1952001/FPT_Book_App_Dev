@@ -19,10 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas\Authenticated\Controllers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Privacy.cshtml" />
     </ItemGroup>
