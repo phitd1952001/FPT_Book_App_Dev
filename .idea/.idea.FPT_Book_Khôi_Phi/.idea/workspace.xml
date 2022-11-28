@@ -9,13 +9,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fce3ef-441c-4dad-92c8-1aaaf4761438" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/encodings.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/CategoriesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/ProductsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Import.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Upsert.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Import.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Upsert.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Category.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModels/ProductVM.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Shared/_StatusMessage.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221121034119_AddDbinit.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221121034119_AddDbinit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -121,6 +132,15 @@
       <workItem from="1669046811102" duration="880000" />
       <workItem from="1669047768561" duration="146000" />
       <workItem from="1669047949204" duration="170000" />
+      <workItem from="1669048273103" duration="310000" />
+      <workItem from="1669085176626" duration="652000" />
+      <workItem from="1669090836563" duration="192000" />
+      <workItem from="1669091091945" duration="969000" />
+      <workItem from="1669099831833" duration="1284000" />
+      <workItem from="1669124748685" duration="3488000" />
+      <workItem from="1669134554186" duration="1584000" />
+      <workItem from="1669367064066" duration="1207000" />
+      <workItem from="1669642986658" duration="3647000" />
     </task>
     <servers />
   </component>
