@@ -9,56 +9,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fce3ef-441c-4dad-92c8-1aaaf4761438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/CategoriesController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/ProductsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Import.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Upsert.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Import.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Upsert.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Category.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModels/ProductVM.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Shared/_StatusMessage.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_28_2022_9_58_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_28_2022_9_58_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_10_37_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_10_37_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_9_59_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_9_59_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/UsersManagementController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/ConfirmEmail.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/ResetPassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/UsersManagement/Update.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel/ConfirmEmailVM.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel/ResetPasswordViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel/UserVM.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FPT_Book_Khôi_Phi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221121163311_addDbApplicationUser.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221121163311_addDbApplicationUser.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/697050deb22a2642d1f1311dc2abbff272e4d5575d8f69d97af9f902d985b27/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/IdentityHostingStartup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Email.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/FPT_Book_Khôi_Phi/Data/ApplicationDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/FPT_Book_Khôi_Phi/Utility/SD.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -147,7 +136,22 @@
       <workItem from="1669046811102" duration="880000" />
       <workItem from="1669047768561" duration="146000" />
       <workItem from="1669047949204" duration="170000" />
+      <workItem from="1669650026432" duration="83000" />
+      <workItem from="1669695023375" duration="2275000" />
+      <workItem from="1669825494781" duration="789000" />
+      <workItem from="1669870493450" duration="1116000" />
+      <workItem from="1669875420327" duration="4177000" />
+      <workItem from="1669890409781" duration="529000" />
+      <workItem from="1669899438197" duration="7205000" />
     </task>
+    <task id="LOCAL-00001" summary="done Cart and Order">
+      <created>1669904349192</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669904349192</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +161,40 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="done Cart and Order" />
+    <option name="LAST_COMMIT_MESSAGE" value="done Cart and Order" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs</url>
+          <line>89</line>
+          <properties documentPath="C:\Users\Admin\RiderProjects\FPT_Book_Khôi_Phi\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs" initialLine="93" containingFunctionPresentation="method 'OnPostAsync'">
+            <startOffsets>
+              <option value="2691" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2754" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs</url>
+          <line>77</line>
+          <properties documentPath="C:\Users\Admin\RiderProjects\FPT_Book_Khôi_Phi\Areas\Identity\Pages\Account\Manage\Index.cshtml.cs" initialLine="81" containingFunctionPresentation="method 'OnPostAsync'">
+            <startOffsets>
+              <option value="2335" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2384" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
