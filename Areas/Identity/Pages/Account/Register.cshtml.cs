@@ -59,6 +59,9 @@ namespace FPT_Book_Khôi_Phi.Areas.Identity.Pages.Account
             public string Email { get; set; }
             
             [Required]
+            public string PhoneNumber { get; set; }
+            
+            [Required]
             public string Address { get; set; }
 
             [Required]
@@ -95,7 +98,8 @@ namespace FPT_Book_Khôi_Phi.Areas.Identity.Pages.Account
                     UserName = Input.Email, 
                     Email = Input.Email,
                     FullName = Input.FullName,
-                    Address = Input.Address
+                    Address = Input.Address,
+                    PhoneNumber = Input.PhoneNumber
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

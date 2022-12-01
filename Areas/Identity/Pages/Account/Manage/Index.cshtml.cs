@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using FPT_Book_Khôi_Phi.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,13 +14,16 @@ namespace FPT_Book_Khôi_Phi.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ApplicationDbContext _db;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _db = db;
         }
 
         public string Username { get; set; }
@@ -35,18 +39,25 @@ namespace FPT_Book_Khôi_Phi.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            [Required] 
+            public string FullName { get; set; }
+            [Required] 
+            public string  Address { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var userDb = _db.ApplicationUsers.Find(user.Id);
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FullName = userDb.FullName,
+                Address = userDb.Address
             };
         }
 
@@ -86,6 +97,14 @@ namespace FPT_Book_Khôi_Phi.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            
+            var editProfile = _db.ApplicationUsers.Find(user.Id);
+            editProfile.FullName = Input.FullName;
+            editProfile.PhoneNumber = Input.PhoneNumber;
+            editProfile.Address = Input.Address;
+
+            _db.ApplicationUsers.Update(editProfile);
+            _db.SaveChanges();
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
