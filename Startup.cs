@@ -73,6 +73,7 @@ namespace FPT_Book_Khôi_Phi
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();
