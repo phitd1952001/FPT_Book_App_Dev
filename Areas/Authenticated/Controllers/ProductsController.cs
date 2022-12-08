@@ -1,15 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using FPT_Book_Khôi_Phi.ViewModel;
 using FPT_Book_Khôi_Phi.Data;
 using FPT_Book_Khôi_Phi.Models;
 using FPT_Book_Khôi_Phi.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
 {
@@ -119,6 +125,43 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
             productVm.CategoryList = categoriesSelectListItems();
 
             return View(productVm);
+        }
+
+        [HttpGet]
+        public IActionResult ImportFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ImportFromExcel(IFormFile file)
+        {
+            var list = new List<Product>();
+            
+            using (var stream = new MemoryStream())
+            {
+                await file.CopyToAsync(stream);
+                using (var package = new ExcelPackage(stream))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.First();
+                    var countRows = worksheet.Dimension.Rows;
+                    for (int row = 2; row <= countRows; row++)
+                    {
+                        list.Add(new Product()
+                        {
+                            Title = worksheet.Cells[row, 1].Value.ToString(),
+                            Description = worksheet.Cells[row, 2].Value.ToString(),
+                            Author = worksheet.Cells[row, 3].Value.ToString(),
+                            NoPage = worksheet.Cells[row, 4].Value.ToString(),
+                            Price = Convert.ToInt32(worksheet.Cells[row, 5].Value.ToString()),
+                            CategoryId = _db.Categories
+                                .FirstOrDefault(c => c.Name == worksheet.Cells[row, 6].Value.ToString()).Id
+                        });
+                    }
+                }
+            }
+            _db.Products.AddRange(list);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         [NonAction]
