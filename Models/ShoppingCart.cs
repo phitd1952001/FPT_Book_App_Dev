@@ -10,8 +10,8 @@ namespace FPT_Book_Khôi_Phi.Models
         
         public int Count { get; set; }
         
-        public string ApplicationUserId { get; set; }
-        [ForeignKey("ApplicationUserId")]
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
         public ApplicationUser ApplicationUser{ get; set; }
         
         public int ProductId { get; set; }

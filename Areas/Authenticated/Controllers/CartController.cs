@@ -40,7 +40,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             ShoppingCartVM = new ShoppingCartVM()
             {
                 OrderHeader = new OrderHeader(),
-                ListCarts = _db.ShoppingCarts.Where(u => u.ApplicationUserId == claim.Value).Include(x => x.Product)
+                ListCarts = _db.ShoppingCarts.Where(u => u.UserId == claim.Value).Include(x => x.Product)
             };
             ShoppingCartVM.OrderHeader.Total = 0;
             ShoppingCartVM.OrderHeader.ApplicationUser = _db.ApplicationUsers.FirstOrDefault(x => x.Id == claim.Value);
@@ -65,7 +65,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             var cart = _db.ShoppingCarts.Include(x=> x.Product).FirstOrDefault(x => x.Id == CartId);
             if (cart.Count == 1)
             {
-                var cnt = _db.ShoppingCarts.Where(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
+                var cnt = _db.ShoppingCarts.Where(u => u.UserId == cart.UserId).ToList().Count;
                 _db.ShoppingCarts.Remove(cart);
                 _db.SaveChanges();
                 HttpContext.Session.SetInt32(SD.ssShoppingCart, cnt - 1);
@@ -82,7 +82,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
         public IActionResult Remove(int CartId)
         {
             var cart = _db.ShoppingCarts.Include(x=> x.Product).FirstOrDefault(x => x.Id == CartId);
-            var cnt = _db.ShoppingCarts.Where(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
+            var cnt = _db.ShoppingCarts.Where(u => u.UserId == cart.UserId).ToList().Count;
             _db.ShoppingCarts.Remove(cart);
             _db.SaveChanges();
             HttpContext.Session.SetInt32(SD.ssShoppingCart, cnt -1);
@@ -97,7 +97,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             ShoppingCartVM = new ShoppingCartVM()
             {
                 OrderHeader = new OrderHeader(),
-                ListCarts = _db.ShoppingCarts.Where(u => u.ApplicationUserId == claim.Value).Include(u => u.Product)
+                ListCarts = _db.ShoppingCarts.Where(u => u.UserId == claim.Value).Include(u => u.Product)
             };
 
             ShoppingCartVM.OrderHeader.ApplicationUser = _db.ApplicationUsers.FirstOrDefault(u => u.Id == claim.Value);
@@ -121,7 +121,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
 
             ShoppingCartVM.OrderHeader.ApplicationUser = _db.ApplicationUsers.FirstOrDefault(u => u.Id == claim.Value);
 
-            ShoppingCartVM.ListCarts = _db.ShoppingCarts.Where(u => u.ApplicationUserId == claim.Value)
+            ShoppingCartVM.ListCarts = _db.ShoppingCarts.Where(u => u.UserId == claim.Value)
                 .Include(u => u.Product);
             ShoppingCartVM.OrderHeader.ApplicationUserId = claim.Value;
             ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;

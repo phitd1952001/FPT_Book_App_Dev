@@ -52,9 +52,9 @@ namespace FPT_Book_Khôi_Phi.Areas.UnAuthenticated.Controllers
             {
                 var claimIdentity = (ClaimsIdentity) User.Identity;
                 var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-                CartObject.ApplicationUserId = claim.Value;
+                CartObject.UserId = claim.Value;
                 ShoppingCart cartFromDb = _db.ShoppingCarts.Where(
-                        u => u.ApplicationUserId == CartObject.ApplicationUserId && u.ProductId == CartObject.ProductId).Include(u => u.Product).FirstOrDefault();
+                        u => u.UserId == CartObject.UserId && u.ProductId == CartObject.ProductId).Include(u => u.Product).FirstOrDefault();
                 if(cartFromDb == null)
                 {
                     //no records exists in database for that product for that user
@@ -68,7 +68,7 @@ namespace FPT_Book_Khôi_Phi.Areas.UnAuthenticated.Controllers
 
                 _db.SaveChanges();
                 // store to sesion
-                var count = _db.ShoppingCarts.Where(c => c.ApplicationUserId == CartObject.ApplicationUserId).ToList().Count();
+                var count = _db.ShoppingCarts.Where(c => c.UserId == CartObject.UserId).ToList().Count();
                 HttpContext.Session.SetInt32(SD.ssShoppingCart, count);
                 return RedirectToAction(nameof(Index));
             }
