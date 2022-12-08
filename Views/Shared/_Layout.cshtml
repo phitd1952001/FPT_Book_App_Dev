@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using FPT_Book_Khôi_Phi.Utility
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -6,6 +10,7 @@
     <title>@ViewData["Title"] - FPT_Book_Khôi_Phi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <header>
@@ -22,8 +27,36 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="Products" asp-action="Index">Product</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="OrderOverViews" asp-action="Index">OrderOverViews</a>
+                    </li>
+                    @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.ssShoppingCart) != null)
+                    {
+                        <li style="color: white">
+                            <a asp-area="Authenticated" asp-controller="Cart" asp-action="Index" class="nav-link">
+                                @{
+                                    var count = HttpContextAccessor.HttpContext.Session.GetInt32(SD.ssShoppingCart);
+                                }
+                                <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li style="color: white">
+                            <a href="#" class="nav-link">
+                                @{
+                                    var count = HttpContextAccessor.HttpContext.Session.GetInt32(SD.ssShoppingCart);
+                                }
+                                <i class="fas fa-shopping-cart"></i> &nbsp; (0)
+                                </a>
+                            </li>
+                    }
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>
@@ -38,7 +71,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2022 - FPT_Book_Khôi_Phi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2022 - FPT_Book_Khôi_Phi
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -23,6 +23,8 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\UnAuthenticated\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
