@@ -31,7 +31,7 @@ namespace FPT_Book_Khôi_Phi.Areas.UnAuthenticated.Controllers
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
             if (claim != null)
             {
-                var count = _db.ShoppingCarts.Where(u => u.ApplicationUserId == claim.Value).ToList().Count();
+                var count = _db.ShoppingCarts.Where(u => u.UserId == claim.Value).ToList().Count();
                 HttpContext.Session.SetInt32(SD.ssShoppingCart, count);
             }
             return View(productList);
