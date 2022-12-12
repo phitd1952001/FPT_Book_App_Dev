@@ -24,10 +24,28 @@
                                     </h4>
                                 </div>
                                 <div class="row my-1">
-                                    <div class="col-3">
+                                    <div class="col-4">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="OrderHeader.Name" type="text" class="form-control" />
+                                        <span asp-validation-for="OrderHeader.Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row my-1">
+                                    <div class="col-4">
+                                        <label>Phone Number</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="OrderHeader.PhoneNumber" type="text" class="form-control" />
+                                        <span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row my-1">
+                                    <div class="col-4">
                                         <label>Street Address</label>
                                     </div>
-                                    <div class="col-9">
+                                    <div class="col-8">
                                         <input asp-for="OrderHeader.Address" type="text" class="form-control" />
                                         <span asp-validation-for="OrderHeader.Address" class="text-danger"></span>
                                     </div>

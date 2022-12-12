@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using FPT_Book_Khôi_Phi.Data;
 using FPT_Book_Khôi_Phi.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
 {

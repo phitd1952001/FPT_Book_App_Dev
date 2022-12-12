@@ -106,7 +106,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             {
                 ShoppingCartVM.OrderHeader.Total += (list.Price + list.Count);
             }
-
+            
             ShoppingCartVM.OrderHeader.Address = ShoppingCartVM.OrderHeader.ApplicationUser.Address;
             return View(ShoppingCartVM);
         }
@@ -131,6 +131,21 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             foreach (var item in ShoppingCartVM.ListCarts)
             {
                 item.Price = item.Product.Price;
+                
+                // update quantity of the products
+                var productDb = _db.Products.Find(item.ProductId);
+                if (productDb.Quantity >= item.Count)
+                {
+                    productDb.Quantity -= item.Count;
+                }
+                else
+                {
+                    item.Count = productDb.Quantity;
+                    productDb.Quantity = 0;
+                }
+
+                _db.Products.Update(productDb);
+
                 OrderDetails orderDetails = new OrderDetails()
                 {
                     ProductId = item.ProductId,
@@ -138,6 +153,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
                     Price = item.Price,
                     Quantity = item.Count
                 };
+               
                 ShoppingCartVM.OrderHeader.Total += orderDetails.Quantity * orderDetails.Price;
                 _db.OrderDetailss.Add(orderDetails);
             }

@@ -108,6 +108,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
                 productDb.Price = productVm.Product.Price;
                 productDb.NoPage = productVm.Product.NoPage;
                 productDb.ImageUrl = productVm.Product.ImageUrl;
+                productDb.Quantity = productVm.Product.Quantity;
                 
                 _db.Products.Update(productDb);
                 _db.SaveChanges();

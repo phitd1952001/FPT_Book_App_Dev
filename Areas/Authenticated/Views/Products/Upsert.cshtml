@@ -38,6 +38,11 @@
         <input asp-for="Product.Price" class="form-control">
         <span asp-validation-for="Product.Price" class="text-danger"></span>
     </div>
+    <div class="mb-3">
+            <label asp-for="Product.Quantity" class="form-label"></label>
+            <input asp-for="Product.Quantity" class="form-control">
+            <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+        </div>
     <img src="@Model.Product.ImageUrl" width="300px" style="boder-radius: 5px; border: solid #bbb9b9">
     <div class="mb-3">
         <label asp-for="Product.CategoryId" class="form-label"></label>
