@@ -7,7 +7,6 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using FPT_Book_Khôi_Phi.Models;
 using FPT_Book_Khôi_Phi.Utility;
-using Humanizer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

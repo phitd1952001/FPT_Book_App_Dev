@@ -1,30 +1,63 @@
 ﻿@model IEnumerable<FPT_Book_Khôi_Phi.Models.OrderHeader>
-
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var status = Context.Request.Query["status"];
+
+    var pending = "text-primary";
+    var all = "text-primary";
+    var inprocess= "text-primary";
+    var completed = "text-primary";
+    var rejected = "text-primary";
+
+    switch (status)
+    {
+        case "pending":
+            pending = "active text-white";
+            break;
+        case "inprocess":
+            inprocess = "active text-white";
+            break;
+        case "rejected":
+            rejected = "active text-white";
+            break;
+        default:
+            all = "active text-white";
+            break;
+    }
 }
 
-@if (Model.Any())
-{
-    <div class="card shadow mb-4">
-        <div class="card-body text-dark" style="background-color: #d3d4d4">
-            <div class="table-responsive font-weight-bold">
-                <table class="table table-bordered" id="dataTable">
-                    <thead>
-                    <tr>
-                        <th>Order Id</th>
-                        <th>Customer Name</th>
-                        <th>Customer Adress</th>
-                        <th>Customer Email </th>
-                        <th>Order Date</th>
-                        <th>Total</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    
-                    @if (Model.Count() > 10)
-                    {
-                        <tfoot>
+<br />
+<div class="border p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="p-2">
+            <h2 class="text-primary">Order's List </h2>
+        </div>
+        <div class="p-2">
+            <ul class="list-group list-group-horizontal-sm">
+                <a style="text-decoration:none;" asp-controller="OrderOverViews"
+                   asp-action="Index" asp-route-status="inprocess">
+                    <li class="list-group-item @inprocess">In Process</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="OrderOverViews"
+                   asp-action="Index" asp-route-status="rejected">
+                    <li class="list-group-item @rejected">Rejected</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="OrderOverViews"
+                   asp-action="Index" asp-route-status="all">
+                    <li class="list-group-item @all">All</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="card shadow mb-4">
+            <div class="card-body text-dark" style="background-color: #d3d4d4">
+                <div class="table-responsive font-weight-bold">
+                    <table class="table table-bordered" id="dataTable">
+                        <thead>
                         <tr>
                             <th>Order Id</th>
                             <th>Customer Name</th>
@@ -34,31 +67,37 @@
                             <th>Total</th>
                             <th>Action</th>
                         </tr>
-                        </tfoot>
-                    }
-                    
-                    <tbody>
-                    @foreach (var order in @Model)
-                    {
-                        <tr>
-                            <td>@order.Id</td>
-                            <td>@order.ApplicationUser.FullName</td>
-                            <td>@order.ApplicationUser.Address</td>
-                            <td>@order.ApplicationUser.Email</td>
-                            <td>@order.OrderDate</td>
-                            <td>@order.Total</td>
-                            <td>
-                                <a asp-controller="OrderOverViews" asp-action="orderDetails" asp-route-orderHeaderId="@order.Id" class="btn btn-info">View Detail</a>
-                            </td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        @foreach (var order in @Model)
+                        {
+                            <tr>
+                                <td>@order.Id</td>
+                                <td>@order.ApplicationUser.FullName</td>
+                                <td>@order.ApplicationUser.Address</td>
+                                <td>@order.ApplicationUser.Email</td>
+                                <td>@order.OrderDate</td>
+                                <td>@order.Total</td>
+                                <td>
+                                    <a asp-controller="OrderOverViews" asp-action="Details" asp-route-id="@order.Id" class="btn btn-info">View Detail</a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-}
-else
-{
-    <h2 class="text-center">Novalue Order</h2>
+    }
+    else
+    {
+        <h2 class="text-center">No value Order</h2>
+    }
+</div>
+
+
+@section Scripts{
+    <script>
+    
+    </script>
 }

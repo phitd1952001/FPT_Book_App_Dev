@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 namespace FPT_Book_Khôi_Phi.Areas.Authenticated
 {
@@ -106,7 +107,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             {
                 ShoppingCartVM.OrderHeader.Total += (list.Price + list.Count);
             }
-
+            
             ShoppingCartVM.OrderHeader.Address = ShoppingCartVM.OrderHeader.ApplicationUser.Address;
             return View(ShoppingCartVM);
         }
@@ -114,7 +115,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
         [HttpPost]
         [ActionName("Summary")]
         [ValidateAntiForgeryToken]
-        public IActionResult SummaryPost()
+        public IActionResult SummaryPost(string stripeToken)
         {
             var claimIdentity = (ClaimsIdentity) User.Identity;
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -125,12 +126,32 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
                 .Include(u => u.Product);
             ShoppingCartVM.OrderHeader.ApplicationUserId = claim.Value;
             ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;
+            ShoppingCartVM.OrderHeader.Name = ShoppingCartVM.OrderHeader.ApplicationUser.FullName;
+            ShoppingCartVM.OrderHeader.PhoneNumber = ShoppingCartVM.OrderHeader.ApplicationUser.PhoneNumber;
+            ShoppingCartVM.OrderHeader.Address = ShoppingCartVM.OrderHeader.ApplicationUser.Address;
+            ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusPending;
+            ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusPending;
             _db.OrderHeaders.Add(ShoppingCartVM.OrderHeader);
             _db.SaveChanges();
 
             foreach (var item in ShoppingCartVM.ListCarts)
             {
                 item.Price = item.Product.Price;
+                
+                // update quantity of the products
+                var productDb = _db.Products.Find(item.ProductId);
+                if (productDb.Quantity >= item.Count)
+                {
+                    productDb.Quantity -= item.Count;
+                }
+                else
+                {
+                    item.Count = productDb.Quantity;
+                    productDb.Quantity = 0;
+                }
+
+                _db.Products.Update(productDb);
+
                 OrderDetails orderDetails = new OrderDetails()
                 {
                     ProductId = item.ProductId,
@@ -138,6 +159,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
                     Price = item.Price,
                     Quantity = item.Count
                 };
+               
                 ShoppingCartVM.OrderHeader.Total += orderDetails.Quantity * orderDetails.Price;
                 _db.OrderDetailss.Add(orderDetails);
             }
@@ -145,6 +167,43 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
             _db.ShoppingCarts.RemoveRange(ShoppingCartVM.ListCarts);
             _db.SaveChanges();
             HttpContext.Session.SetInt32(SD.ssShoppingCart, 0);
+            
+            if (stripeToken == null)
+            {
+                //order will be created for delayed payment for authroized company
+                ShoppingCartVM.OrderHeader.PaymentDueDate = DateTime.Now.AddDays(30);
+                ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusDelayedPayment;
+                ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
+            }
+            else
+            {
+                //process the payment
+                var options = new ChargeCreateOptions
+                {
+                    Amount = Convert.ToInt32(ShoppingCartVM.OrderHeader.Total * 100),
+                    Currency = "usd",
+                    Description = "Order ID : " + ShoppingCartVM.OrderHeader.Id,
+                    Source = stripeToken
+                };
+
+                var service = new ChargeService();
+                Charge charge = service.Create(options);
+
+                if (charge.Id == null)
+                {
+                    ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusRejected;
+                }
+                else
+                {
+                    ShoppingCartVM.OrderHeader.TransactionId = charge.Id;
+                }
+                if (charge.Status.ToLower() == "succeeded")
+                {
+                    ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusApproved;
+                    ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
+                    ShoppingCartVM.OrderHeader.PaymentDate = DateTime.Now;
+                }
+            }
             
             return RedirectToAction("OrderConfirmation", "Cart", new { id = ShoppingCartVM.OrderHeader.Id });
         }
