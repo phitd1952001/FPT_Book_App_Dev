@@ -2,6 +2,7 @@
 @using FPT_Book_Khôi_Phi.Utility
 @using Microsoft.Extensions.Options
 
+@inject IOptions<StripeSettings> Stripe
 <form method="post">
     <input hidden asp-for="OrderHeader.Id" />
     <br />
@@ -73,36 +74,11 @@
                             <div class="row my-1">
                                 <div class="col-3">Shipping Date</div>
                                 <div class="col-9">
-                                    <input value="@Model.OrderHeader.ShippingDate.ToShortDateString()"
+                                    <input value="@DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()"
                                            id="shippingDate" type="text" readonly class="form-control" />
                                 </div>
                             </div>
-                            
                             <div class="row my-1">
-                                    <div class="col-3">Transaction ID</div>
-                                    <div class="col-9">
-                                        <input asp-for="OrderHeader.TransactionId" type="text" readonly class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="row my-1">
-                                    @if (Model.OrderHeader.TransactionId == null)
-                                    {
-                                        <div class="col-3">Payment Due Date</div>
-                                        <div class="col-9">
-                                            <input value="@Model.OrderHeader.PaymentDueDate.ToShortDateString()"
-                                                   readonly type="text" class="form-control" />
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="col-3">Payment Date</div>
-                                        <div class="col-9">
-                                            <input value="@Model.OrderHeader.PaymentDate.ToShortDateString()"
-                                                   readonly id="paymentDate" type="text" class="form-control" />
-                                        </div>
-                                    }
-                                </div>
-                                <div class="row my-1">
                                     <div class="col-3">Payment Status</div>
                                     <div class="col-9">
                                         <input asp-for="OrderHeader.PaymentStatus" type="text" readonly class="form-control" />
@@ -146,43 +122,13 @@
                             </ul>
 
                             
-                                <br />
-                                @if (Model.OrderHeader.OrderStatus == SD.StatusApproved || Model.OrderHeader.OrderStatus == SD.PaymentStatusPending)
-                                {
-                                    <a asp-action="ProcessOrder" asp-route-id="@Model.OrderHeader.Id"
-                                       class="btn btn-primary form-control">Start Processing</a>
-                                }
-                                @if (Model.OrderHeader.OrderStatus == SD.StatusInProcess)
-                                {
-                                    <input type="submit" value="Ship Order" onclick="return validateInput()"
-                                           class="btn btn-primary form-control"
-                                           formaction="/Authenticated/OrderOverViews/ShipOrder" formmethod="post" />
-                                }
-                            
-
-                            @* @{ *@
-                            @*     var OrderTotalForStripe = Model.OrderHeader.OrderTotal * 100; *@
-                            @* } *@
-
-                            @* @if (Model.OrderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment && *@
-                            @*    Model.OrderHeader.OrderStatus == SD.StatusShipped) *@
-                            @* { *@
-                            @*     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" *@
-                            @*             data-key="@Stripe.Value.PublishableKey" *@
-                            @*             data-amount="@OrderTotalForStripe" *@
-                            @*             data-name="Book Shop" *@
-                            @*             data-label="Place Order" *@
-                            @*             data-description="Get Books, For Less" *@
-                            @*             data-locale="auto" *@
-                            @*             data-allow-remember-me="false" *@
-                            @*             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"> *@
-                            @*     </script> *@
-                            @*     <script> *@
-                            @*         document.getElementsByClassName("stripe-button-el")[0].style.display = 'none'; *@
-                            @*     </script> *@
-                            @*     <button type="submit" value="Place Order" class="btn btn-success form-control">Pay Now</button> *@
-                            @* } *@
-
+                            <br />
+                            <br />
+                            @if (Model.OrderHeader.OrderStatus == SD.StatusPending)
+                            {
+                                <a asp-action="ProcessOrder" asp-route-id="@Model.OrderHeader.Id"
+                                   class="btn btn-primary form-control">Start Processing</a>
+                            }
 
                             @if (Model.OrderHeader.OrderStatus != SD.StatusRefunded &&
                            Model.OrderHeader.OrderStatus != SD.StatusCancelled)

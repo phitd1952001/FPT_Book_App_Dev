@@ -18,9 +18,6 @@
         case "inprocess":
             inprocess = "active text-white";
             break;
-        case "completed":
-            completed = "active text-white";
-            break;
         case "rejected":
             rejected = "active text-white";
             break;
@@ -43,14 +40,6 @@
                     <li class="list-group-item @inprocess">In Process</li>
                 </a>
                 <a style="text-decoration:none;" asp-controller="OrderOverViews"
-                   asp-action="Index" asp-route-status="pending">
-                    <li class="list-group-item @pending">Payment Pending</li>
-                </a>
-                <a style="text-decoration:none;" asp-controller="OrderOverViews"
-                   asp-action="Index" asp-route-status="completed">
-                    <li class="list-group-item @completed">Completed</li>
-                </a>
-                <a style="text-decoration:none;" asp-controller="OrderOverViews"
                    asp-action="Index" asp-route-status="rejected">
                     <li class="list-group-item @rejected">Rejected</li>
                 </a>
@@ -61,8 +50,7 @@
             </ul>
         </div>
     </div>
-    <br /><br />
-    
+
     @if (Model.Any())
     {
         <div class="card shadow mb-4">

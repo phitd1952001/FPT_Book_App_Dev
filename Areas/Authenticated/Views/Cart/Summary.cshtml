@@ -1,5 +1,8 @@
-﻿@model FPT_Book_Khôi_Phi.Models.ShoppingCartVM
-
+﻿@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using FPT_Book_Khôi_Phi.Utility
+@model FPT_Book_Khôi_Phi.Models.ShoppingCartVM
+@inject IOptions<StripeSettings> Stripe
 <form method="post">
     <br />
     <div class="backgroundWhiteBorder">
@@ -81,7 +84,25 @@
                             <p style="color:maroon; font-size:14px;">Estimate Arrival Date: @DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()</p>
                         </div>
                         <div class="col-12 col-md-4">
-                            <button type="submit" value="Place Order" class="btn btn-primary form-control">Place Order</button>
+                        
+                            @{
+                                var OrderTotalForStripe = Model.OrderHeader.Total * 100;
+                            }
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                        data-key="@Stripe.Value.PublishableKey"
+                                        data-amount="@OrderTotalForStripe"
+                                        data-name="BookShop"
+                                        data-label="Place Order"
+                                        data-description="Get Books, For Less"
+                                        data-locale="auto"
+                                        data-allow-remember-me="false"
+                                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+                            </script>
+                            <script>
+                                document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                            </script>
+                            <button type="submit" value="Place Order" class="btn btn-success form-control">Place Order</button>
+                       
                         </div>
                     </div>
                 </div>

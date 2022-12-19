@@ -10,9 +10,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using FPT_Book_Khôi_Phi.Data;
 using FPT_Book_Khôi_Phi.DbInitializer;
+using FPT_Book_Khôi_Phi.Utility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 
 namespace FPT_Book_Khôi_Phi
 {
@@ -39,6 +41,7 @@ namespace FPT_Book_Khôi_Phi
             
             services.AddControllersWithViews();
             services.AddScoped<IDbInitializer, DbInitializer.DbInitializer>();
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             
             services.ConfigureApplicationCookie(options =>
             {
@@ -73,6 +76,7 @@ namespace FPT_Book_Khôi_Phi
             app.UseStaticFiles();
 
             app.UseRouting();
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
             app.UseSession();
 
             app.UseAuthentication();

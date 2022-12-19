@@ -9,6 +9,7 @@ using FPT_Book_Khôi_Phi.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
 {
@@ -45,9 +46,6 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
                                                                  o.OrderStatus==SD.StatusInProcess||
                                                                  o.OrderStatus==SD.StatusPending);
                     break;
-                case "completed":
-                    orderHeaderList = orderHeaderList.Where(o => o.OrderStatus == SD.StatusShipped);
-                    break;
                 case "rejected":
                     orderHeaderList = orderHeaderList.Where(o => o.OrderStatus == SD.StatusCancelled ||
                                                                  o.OrderStatus == SD.StatusRefunded ||
@@ -78,60 +76,46 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
         public IActionResult Details(string stripeToken)
         {
             OrderHeader orderHeader = _db.OrderHeaders.Where(u => u.Id == OrderVM.OrderHeader.Id).Include(u=>u.ApplicationUser).FirstOrDefault();
-            // if(stripeToken!=null)
-            // {
-            //     //process the payment
-            //     var options = new ChargeCreateOptions
-            //     {
-            //         Amount = Convert.ToInt32(orderHeader.OrderTotal*100),
-            //         Currency = "usd",
-            //         Description = "Order ID : " + orderHeader.Id,
-            //         Source = stripeToken
-            //     };
-            //
-            //     var service = new ChargeService();
-            //     Charge charge = service.Create(options);
-            //
-            //     if (charge.Id == null)
-            //     {
-            //         orderHeader.PaymentStatus = SD.PaymentStatusRejected;
-            //     }
-            //     else
-            //     {
-            //         orderHeader.TransactionId = charge.Id;
-            //     }
-            //     if (charge.Status.ToLower() == "succeeded")
-            //     {
-            //         orderHeader.PaymentStatus = SD.PaymentStatusApproved;
-            //        
-            //         orderHeader.PaymentDate = DateTime.Now;
-            //     }
-            //
-            //     _db.SaveChanges();
-            //
-            // }
+            if(stripeToken!=null)
+            {
+                //process the payment
+                var options = new ChargeCreateOptions
+                {
+                    Amount = Convert.ToInt32(orderHeader.Total*100),
+                    Currency = "usd",
+                    Description = "Order ID : " + orderHeader.Id,
+                    Source = stripeToken
+                };
+            
+                var service = new ChargeService();
+                Charge charge = service.Create(options);
+            
+                if (charge.Id == null)
+                {
+                    orderHeader.PaymentStatus = SD.PaymentStatusRejected;
+                }
+                else
+                {
+                    orderHeader.TransactionId = charge.Id;
+                }
+                if (charge.Status.ToLower() == "succeeded")
+                {
+                    orderHeader.PaymentStatus = SD.PaymentStatusApproved;
+                   
+                    orderHeader.PaymentDate = DateTime.Now;
+                }
+            
+                _db.SaveChanges();
+            
+            }
             return RedirectToAction("Details", "OrderOverViews", new { id = orderHeader.Id });
         }
 
-        [HttpPost]
+        [HttpGet]
         [Authorize(Roles = SD.Role_StoreOwner)]
-        public IActionResult ShipOrder()
+        public IActionResult ProcessOrder(int id)
         {
-            OrderHeader orderHeader = _db.OrderHeaders.FirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id);
-            orderHeader.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
-            orderHeader.Carrier = OrderVM.OrderHeader.Carrier;
-            orderHeader.OrderStatus = SD.StatusShipped;
-            orderHeader.ShippingDate = DateTime.Now;
-            
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        
-        [HttpPost]
-        [Authorize(Roles = SD.Role_StoreOwner)]
-        public IActionResult ProcessOrder()
-        {
-            OrderHeader orderHeader = _db.OrderHeaders.FirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id);
+            OrderHeader orderHeader = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
             orderHeader.OrderStatus = SD.StatusInProcess;
 
             _db.SaveChanges();
@@ -142,28 +126,28 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
         public IActionResult CancelOrder(int id)
         {
             OrderHeader orderHeader = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
-            // if (orderHeader.PaymentStatus == SD.StatusApproved)
-            // {
-            //     var options = new RefundCreateOptions
-            //     {
-            //         Amount = Convert.ToInt32(orderHeader.OrderTotal * 100),
-            //         Reason = RefundReasons.RequestedByCustomer,
-            //         Charge = orderHeader.TransactionId
-            //
-            //     };
-            //     var service = new RefundService();
-            //     Refund refund = service.Create(options);
-            //
-            //     orderHeader.OrderStatus = SD.StatusRefunded;
-            //     orderHeader.PaymentStatus = SD.StatusRefunded;
-            // }
-            // else
-            // {
-            //     orderHeader.OrderStatus = SD.StatusCancelled;
-            //     orderHeader.PaymentStatus = SD.StatusCancelled;
-            // }
-            //
-            // _db.SaveChanges();
+            if (orderHeader.PaymentStatus == SD.StatusApproved)
+            {
+                var options = new RefundCreateOptions
+                {
+                    Amount = Convert.ToInt32(orderHeader.Total * 100),
+                    Reason = RefundReasons.RequestedByCustomer,
+                    Charge = orderHeader.TransactionId
+            
+                };
+                var service = new RefundService();
+                Refund refund = service.Create(options);
+            
+                orderHeader.OrderStatus = SD.StatusRefunded;
+                orderHeader.PaymentStatus = SD.StatusRefunded;
+            }
+            else
+            {
+                orderHeader.OrderStatus = SD.StatusCancelled;
+                orderHeader.PaymentStatus = SD.StatusCancelled;
+            }
+            
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 

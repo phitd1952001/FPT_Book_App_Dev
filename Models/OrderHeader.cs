@@ -17,8 +17,6 @@ namespace FPT_Book_Khôi_Phi.Models
         public ApplicationUser ApplicationUser { get; set; }
         [Required] 
         public DateTime ShippingDate { get; set; }
-        [Required]
-        public Double OrderTotal { get; set; }
         public string TrackingNumber { get; set; }
         public string Carrier { get; set; }
         public string OrderStatus { get; set; }
