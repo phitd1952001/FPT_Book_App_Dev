@@ -101,6 +101,7 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
             {
                 var user = _db.ApplicationUsers.Find(userVm.ApplicationUser.Id);
                 user.FullName = userVm.ApplicationUser.FullName;
+                user.PhoneNumber = userVm.ApplicationUser.PhoneNumber;
                 user.Address = userVm.ApplicationUser.Address;
 
                 var oldRole = await _userManager.GetRolesAsync(user);

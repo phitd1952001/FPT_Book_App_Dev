@@ -125,6 +125,8 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated
                 .Include(u => u.Product);
             ShoppingCartVM.OrderHeader.ApplicationUserId = claim.Value;
             ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;
+            ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusPending;
+            ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusPending;
             _db.OrderHeaders.Add(ShoppingCartVM.OrderHeader);
             _db.SaveChanges();
 
