@@ -1,6 +1,7 @@
 ﻿@model FPT_Book_Khôi_Phi.ViewModel.OrderDetailsVM
 @using FPT_Book_Khôi_Phi.Utility
 @using Microsoft.Extensions.Options
+@using Stripe
 
 @inject IOptions<StripeSettings> Stripe
 <form method="post">
@@ -74,7 +75,7 @@
                             <div class="row my-1">
                                 <div class="col-3">Shipping Date</div>
                                 <div class="col-9">
-                                    <input value="@DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()"
+                                    <input value="@DateTime.Now.ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()"
                                            id="shippingDate" type="text" readonly class="form-control" />
                                 </div>
                             </div>
