@@ -5,11 +5,15 @@
 }
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-4">
         <h1>Category Table</h1>
     </div>
-    <div class="col-6">
+    <div class="col-8">
         <a asp-controller="Categories" asp-action="Upsert" class="btn btn-success">Create New Category</a>
+        <a asp-controller="Products" asp-action="ImportFromExcel" class="btn btn-success">Import New Category by Excel</a>
+        <form class="form-inline my-2 my-lg-0 float-right">
+            <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Search">
+        </form>
     </div>
 </div>
 <table class="table">
@@ -22,9 +26,6 @@
     </tr>
     </thead>
     <tbody id="tblData">
-    
-    
-
     <form method="get" asp-action="Index" asp-controller="Categories">
     </form>
     
@@ -42,3 +43,17 @@
     }
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+         $(document).ready(function (){
+             $("#myInput").on("keyup", function(){
+              var value = $(this).val().toLowerCase();
+             $("#tblData tr").filter(function (){
+                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+             });
+         });
+     });
+    </script>
+}

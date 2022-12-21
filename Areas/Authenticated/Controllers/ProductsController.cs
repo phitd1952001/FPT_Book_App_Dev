@@ -154,8 +154,9 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
                             Author = worksheet.Cells[row, 3].Value.ToString(),
                             NoPage = worksheet.Cells[row, 4].Value.ToString(),
                             Price = Convert.ToInt32(worksheet.Cells[row, 5].Value.ToString()),
+                            Quantity = Convert.ToInt32(worksheet.Cells[row, 6].Value.ToString()),
                             CategoryId = _db.Categories
-                                .FirstOrDefault(c => c.Name == worksheet.Cells[row, 6].Value.ToString()).Id
+                                .FirstOrDefault(c => c.Name == worksheet.Cells[row, 7].Value.ToString()).Id
                         });
                     }
                 }

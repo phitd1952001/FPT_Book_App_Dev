@@ -5,13 +5,16 @@
 }
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-4">
         <h1>Product Table</h1>
-        @*<partial name="_StatusMessage" model="@ViewData["Message"]" />*@
+        <partial name="_StatusMessage" model="@ViewData["Message"]" />
     </div>
-    <div class="col-6">
+    <div class="col-8">
         <a asp-controller="Products" asp-action="UpSert" class="btn btn-success">Create New Product</a>
         <a asp-controller="Products" asp-action="ImportFromExcel" class="btn btn-success">Import New Product by Excel</a>
+        <form class="form-inline my-2 my-lg-0 float-right">
+            <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Search">
+        </form>
     </div>
 </div>
 <table class="table">
@@ -28,7 +31,9 @@
         <th scope="col">Action</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="tblData">
+    <form method="get" asp-action="Index" asp-controller="Products">
+    </form>
     @foreach (var obj in @Model)
     {
         <tr>
@@ -48,3 +53,17 @@
     }
     </tbody>
 </table>
+
+@section Scripts
+{
+    <script>
+         $(document).ready(function (){
+             $("#myInput").on("keyup", function(){
+              var value = $(this).val().toLowerCase();
+             $("#tblData tr").filter(function (){
+                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+             });
+         });
+     });
+    </script>
+}

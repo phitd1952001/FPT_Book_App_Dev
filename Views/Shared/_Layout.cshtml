@@ -38,6 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="UsersManagement" asp-action="Index">Users Management</a>
                     </li>
+
                     @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.ssShoppingCart) != null)
                     {
                         <li style="color: white">
@@ -57,8 +58,8 @@
                                     var count = HttpContextAccessor.HttpContext.Session.GetInt32(SD.ssShoppingCart);
                                 }
                                 <i class="fas fa-shopping-cart"></i> &nbsp; (0)
-                                </a>
-                            </li>
+                            </a>
+                        </li>
                     }
                 </ul>
                 <partial name="_LoginPartial"/>
