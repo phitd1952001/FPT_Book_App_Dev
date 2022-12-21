@@ -33,7 +33,10 @@
                         <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Category</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="OrderOverViews" asp-action="Index">OrderOverViews</a>
+                        <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="OrderOverViews" asp-action="Index">Order Over Views</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="Authenticated" asp-controller="UsersManagement" asp-action="Index">Users Management</a>
                     </li>
                     @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.ssShoppingCart) != null)
                     {
@@ -71,7 +74,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2022 - FPT_Book_Khôi_Phi
+        &copy; 2022 - FPT_Book_Store
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
