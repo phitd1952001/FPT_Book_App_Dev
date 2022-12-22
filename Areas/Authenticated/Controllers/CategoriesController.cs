@@ -1,10 +1,16 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using FPT_Book_Khôi_Phi.Data;
 using FPT_Book_Khôi_Phi.Models;
 using FPT_Book_Khôi_Phi.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeOpenXml;
 
 namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
 {
@@ -62,6 +68,38 @@ namespace FPT_Book_Khôi_Phi.Areas.Authenticated.Controllers
             }
 
             return View(category);
+        }
+        
+        [HttpGet]
+        public IActionResult ImportFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ImportFromExcel(IFormFile file)
+        {
+            var list = new List<Category>();
+            
+            using (var stream = new MemoryStream())
+            {
+                await file.CopyToAsync(stream);
+                using (var package = new ExcelPackage(stream))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.First();
+                    var countRows = worksheet.Dimension.Rows;
+                    for (int row = 2; row <= countRows; row++)
+                    {
+                        list.Add(new Category()
+                        {
+                            Name = worksheet.Cells[row, 1].Value.ToString(),
+                            Description = worksheet.Cells[row, 2].Value.ToString(),
+                        });
+                    }
+                }
+            }
+            _db.Categories.AddRange(list);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Delete(int id)

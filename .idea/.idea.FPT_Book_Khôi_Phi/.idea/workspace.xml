@@ -9,26 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fce3ef-441c-4dad-92c8-1aaaf4761438" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_28_2022_9_58_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_28_2022_9_58_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_10_37_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_10_37_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_9_59_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2022_9_59_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/ImportFromExcel.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPT_Book_Khôi_Phi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Controllers/OrderOverViewsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/OrderOverViewsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/ProductsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Views/Cart/Summary.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Cart/Summary.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Import.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Import.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Controllers/CategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Controllers/CategoriesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Categories/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Upsert.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Areas/Authenticated/Views/Products/Upsert.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221201065159_AddInitDb.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20221201065159_AddInitDb.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/OrderHeader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/OrderHeader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +30,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d572abcbb2148e78ec2a14611543f201bffa8/b4/665a0cfb/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/697050deb22a2642d1f1311dc2abbff272e4d5575d8f69d97af9f902d985b27/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d405d7a34b01f698770327836e633e6c63ebd5d2ccebf3bdd35b6f5c462c2/ParameterExtractingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8f40db1c9df947a85fe7869240d245473af55e37bd2ed3d1b7d753d4213268ce/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/IdentityHostingStartup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
@@ -79,7 +66,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderIisExpressOptionsPageId&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -161,6 +148,22 @@
       <workItem from="1670487484404" duration="774000" />
       <workItem from="1670503898204" duration="8202000" />
       <workItem from="1670650630791" duration="2177000" />
+      <workItem from="1670851226640" duration="7424000" />
+      <workItem from="1671176683968" duration="598000" />
+      <workItem from="1671205300538" duration="340000" />
+      <workItem from="1671240017855" duration="70000" />
+      <workItem from="1671266802730" duration="139000" />
+      <workItem from="1671351481595" duration="2118000" />
+      <workItem from="1671434800297" duration="1947000" />
+      <workItem from="1671456085117" duration="11183000" />
+      <workItem from="1671468098043" duration="949000" />
+      <workItem from="1671511566487" duration="1778000" />
+      <workItem from="1671515953942" duration="210000" />
+      <workItem from="1671541633571" duration="9257000" />
+      <workItem from="1671606338834" duration="2500000" />
+      <workItem from="1671615799851" duration="1377000" />
+      <workItem from="1671636460170" duration="8839000" />
+      <workItem from="1671671722378" duration="1750000" />
     </task>
     <task id="LOCAL-00001" summary="done Cart and Order">
       <created>1669904349192</created>
@@ -190,7 +193,49 @@
       <option name="project" value="LOCAL" />
       <updated>1670507394785</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[phi truong] manager product by status">
+      <created>1671456928860</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671456928860</updated>
+    </task>
+    <task id="LOCAL-00006" summary="done payment-status">
+      <created>1671466194254</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671466194254</updated>
+    </task>
+    <task id="LOCAL-00007" summary="done payment">
+      <created>1671468206241</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671468206241</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix json">
+      <created>1671514852872</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671514852872</updated>
+    </task>
+    <task id="LOCAL-00009" summary="done all">
+      <created>1671638239481</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671638239481</updated>
+    </task>
+    <task id="LOCAL-00010" summary="edit import excel, search">
+      <created>1671646056128</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671646056128</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +249,13 @@
     <MESSAGE value="done cart and order" />
     <MESSAGE value="[phi dang] shopping cart" />
     <MESSAGE value="[phi truong] fix error" />
-    <option name="LAST_COMMIT_MESSAGE" value="[phi truong] fix error" />
+    <MESSAGE value="[phi truong] manager product by status" />
+    <MESSAGE value="done payment-status" />
+    <MESSAGE value="done payment" />
+    <MESSAGE value="fix json" />
+    <MESSAGE value="done all" />
+    <MESSAGE value="edit import excel, search" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit import excel, search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -234,19 +285,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Areas/Authenticated/Controllers/CartController.cs</url>
-          <line>118</line>
-          <properties documentPath="C:\Users\Admin\RiderProjects\FPT_Book_Khôi_Phi\Areas\Authenticated\Controllers\CartController.cs" initialLine="118" containingFunctionPresentation="method 'SummaryPost'">
-            <startOffsets>
-              <option value="4320" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4371" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

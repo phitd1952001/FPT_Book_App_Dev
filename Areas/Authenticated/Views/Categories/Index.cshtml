@@ -10,7 +10,7 @@
     </div>
     <div class="col-8">
         <a asp-controller="Categories" asp-action="Upsert" class="btn btn-success">Create New Category</a>
-        <a asp-controller="Products" asp-action="ImportFromExcel" class="btn btn-success">Import New Category by Excel</a>
+        <a asp-controller="Categories" asp-action="ImportFromExcel" class="btn btn-success">Import New Category by Excel</a>
         <form class="form-inline my-2 my-lg-0 float-right">
             <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Search">
         </form>
@@ -42,18 +42,17 @@
         </tr>
     }
     </tbody>
-</table>
-
-@section Scripts
-{
-    <script>
-         $(document).ready(function (){
-             $("#myInput").on("keyup", function(){
-              var value = $(this).val().toLowerCase();
-             $("#tblData tr").filter(function (){
-                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    @section Scripts
+    {
+        <script>
+             $(document).ready(function (){
+                 $("#myInput").on("keyup", function(){
+                  var value = $(this).val().toLowerCase();
+                 $("#tblData tr").filter(function (){
+                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                 });
              });
          });
-     });
-    </script>
-}
+        </script>
+    }
+</table>
